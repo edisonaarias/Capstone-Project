@@ -4,7 +4,7 @@ from .models import College
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
 
-class CarSerializer(serializers.ModelSerializer):
+class CollegeSerializer(serializers.ModelSerializer):
     class Meta:
         model = College
         fields = ['id', 'user','enviroment','professor','benefits','culture','cost']
