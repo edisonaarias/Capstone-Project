@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
+
 import axios from "axios";
 
 const HomePage = () => {
@@ -32,7 +33,7 @@ const HomePage = () => {
       {colleges &&
         colleges.map((college) => (
           <p key={college.id}>
-            {college.user} {college.University} {college.enviroment} {college.professor} {college.benefits} {college.culture} {college.programs} {college.cost} {college.cost} {college.weather_type} {college.major_type}  
+            {colleges.user} {college.University} {colleges.enviroment} {college.professor} {college.benefits} {college.culture} {college.programs} {college.cost} {college.weather_type} {college.major_type}  
           </p>
         ))}
     </div>
