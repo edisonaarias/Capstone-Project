@@ -10,7 +10,8 @@ from .serializers import CollegeSerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def get_all_students(request):
+def get_all_colleges(request):
+    print('weeeeeeeee')
     colleges = College.objects.all()
     serializier = CollegeSerializer(colleges, many=True)
     return Response(serializier.data)
@@ -18,7 +19,7 @@ def get_all_students(request):
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def user_cars(request):
+def user_colleges(request):
         print(
             'User ', f"{request.user.id} {request.user.email} {request.user.username}")
         if request.method == 'POST':

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'corsheaders',
     'cars.apps.CarsConfig',  # This app is for example use only
-    'colleges.apps.CollegesConfig'
+    'colleges.apps.CollegesConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',)
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
 }
 
 SIMPLE_JWT = {
@@ -155,9 +155,7 @@ SIMPLE_JWT = {
 }
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication')
-}
+
 
 try:
     from drf_jwt_backend.local_settings import *
