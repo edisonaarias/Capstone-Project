@@ -1,7 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -16,8 +16,16 @@ import SearchWeathers from "./components/SearchWeathers/SearchWeathers";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import axios from "axios";
 
 function App() {
+
+  const [weather, setWeathers] = useState([]);
+
+useEffect(() => {
+  // getSearchWeathers();
+}, []);
+
 
   const [teachers, setTeachers] = useState([{Professor: "Dr.Clark"}])
 
@@ -39,9 +47,10 @@ function App() {
           element={
             <PrivateRoute>
               <HomePage> 
-                <AddProfessors parentEntriesProperty={NewProfessors} />
-                <SearchWeathers/>
+                
               </HomePage> 
+              <AddProfessors parentEntriesProperty={NewProfessors} />
+              {/* <SearchWeathers climateSearches={getSearchWeathers}/> */}
             </PrivateRoute>
             
           }

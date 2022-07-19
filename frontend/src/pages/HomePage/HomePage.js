@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 
 
 import axios from "axios";
+import SearchWeathers from "../../components/SearchWeathers/SearchWeathers";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -27,13 +28,48 @@ const HomePage = () => {
     };
     fetchColleges();
   }, [token]);
+
+  const [weathers, setEntries] = useState([{University: "UNLV", Enviroment: "restaurnats", benefits: "discount programs", culture:"big party school", programs:"Hospitality", cost:"25217", weather_type:"Day Heat", mayor_type:"Psychology"}])
+
   return (
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
       {colleges &&
         colleges.map((college) => (
           <p key={college.id}>
-            {colleges.user} {college.University} {colleges.enviroment} {college.professor} {college.benefits} {college.culture} {college.programs} {college.cost} {college.weather_type} {college.major_type}  
+        <table>
+          <thead>
+            <tr>
+              <th>University</th>
+              <th>Enviroment</th>
+              <th>Professor</th>
+              <th>benefits</th>
+              <th>culture</th>
+              <th>programs</th>
+              <th>cost</th>
+              <th>weather_type</th>
+              <th>major_type</th>
+            </tr>
+          </thead>
+          <tbody>
+          {weathers.map((weather, index) => {
+              return (
+                <tr>
+                  <td>{University}</td>
+                  <td>{Enviroment}</td>
+                  <td>{Professor}</td>
+                  <td>{University}</td>
+                  <td>{benefits}</td>
+                  <td>{culture}</td>
+                  <td>{programs}</td>
+                  <td>{cost}</td>
+                  <td>{weather_type}</td>
+                  <td>{major_type}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
           </p>
         ))}
     </div>
