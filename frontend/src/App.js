@@ -12,6 +12,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import AddProfessors from "./components/AddProfessors/AddProfessors";
+import SearchWeathers from "./components/SearchWeathers/SearchWeathers";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -20,7 +21,7 @@ function App() {
 
   const [teachers, setTeachers] = useState([{Professor: "Dr.Clark"}])
 
-  function AddNewProfessors(teacher){
+  function NewProfessors(teacher){
 
     let tempTeachers = [teachers, ...teacher];
 
@@ -38,7 +39,8 @@ function App() {
           element={
             <PrivateRoute>
               <HomePage> 
-                <AddNewProfessors parentEntriesProperty={AddNewProfessors}/>
+                <AddProfessors parentEntriesProperty={NewProfessors} />
+                <SearchWeathers/>
               </HomePage> 
             </PrivateRoute>
             
