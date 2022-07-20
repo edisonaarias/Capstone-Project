@@ -29,7 +29,7 @@ const HomePage = () => {
     fetchColleges();
   }, [token]);
 
-  const [weathers, setEntries] = useState([{University: "UNLV", Enviroment: "restaurnats", benefits: "discount programs", culture:"big party school", programs:"Hospitality", cost:"25217", weather_type:"Day Heat", mayor_type:"Psychology"}])
+  const [weathers, setweathers] = useState([{University: "UNLV", Enviroment: "restaurnats", benefits: "discount programs", culture:"big party school", programs:"Hospitality", cost:"25217", weather_type:"Day Heat", mayor_type:"Psychology"}])
 
   return (
     <div className="container">
@@ -37,39 +37,7 @@ const HomePage = () => {
       {colleges &&
         colleges.map((college) => (
           <p key={college.id}>
-        <table>
-          <thead>
-            <tr>
-              <th>University</th>
-              <th>Enviroment</th>
-              <th>Professor</th>
-              <th>benefits</th>
-              <th>culture</th>
-              <th>programs</th>
-              <th>cost</th>
-              <th>weather_type</th>
-              <th>major_type</th>
-            </tr>
-          </thead>
-          <tbody>
-          {weathers.map((weather, index) => {
-              return (
-                <tr>
-                  <td>{University}</td>
-                  <td>{Enviroment}</td>
-                  <td>{Professor}</td>
-                  <td>{University}</td>
-                  <td>{benefits}</td>
-                  <td>{culture}</td>
-                  <td>{programs}</td>
-                  <td>{cost}</td>
-                  <td>{weather_type}</td>
-                  <td>{major_type}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      
           </p>
         ))}
     </div>

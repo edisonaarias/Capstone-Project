@@ -13,6 +13,7 @@ import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import AddProfessors from "./components/AddProfessors/AddProfessors";
 import SearchWeathers from "./components/SearchWeathers/SearchWeathers";
+import DisplayColleges from "./components/DisplayColleges/DisplayColleges";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -20,7 +21,8 @@ import axios from "axios";
 
 function App() {
 
-  const [weather, setWeathers] = useState([]);
+  const [colleges, setColleges] = useState([]);
+  const [weathers, SearchWeathers]= useState([]);
 
 useEffect(() => {
   // getSearchWeathers();
@@ -51,6 +53,7 @@ useEffect(() => {
               </HomePage> 
               <AddProfessors parentEntriesProperty={NewProfessors} />
               {/* <SearchWeathers climateSearches={getSearchWeathers}/> */}
+              <DisplayColleges parentColleges={colleges}/>
             </PrivateRoute>
             
           }
