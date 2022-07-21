@@ -1,3 +1,4 @@
+import re
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -8,13 +9,20 @@ from .serializers import CollegeSerializer
 # Create your views here.
 
 
-@api_view(['GET'])
+@api_view(['GET','POST'])
 @permission_classes([AllowAny])
 def get_all_colleges(request):
     print('weeeeeeeee')
-    colleges = College.objects.all()
-    serializier = CollegeSerializer(colleges, many=True)
-    return Response(serializier.data)
+    if request.method == 'GET':
+        colleges = College.objects.all()
+        serializier = CollegeSerializer(colleges, many=True)
+        return Response(serializier.data)
+    
+    elif request.method == 'POST':
+        serializier = CollegeSerializer(data=request.data)
+        serializier.is_valid(raise_exception=True)
+        serializier.save()
+        return Response(serializier.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET', 'POST'])
@@ -32,3 +40,5 @@ def user_colleges(request):
             colleges = College.objects.filter(user_id=request.user.id)
             serializer = CollegeSerializer(colleges, many=True)
             return Response(serializer.data)
+
+

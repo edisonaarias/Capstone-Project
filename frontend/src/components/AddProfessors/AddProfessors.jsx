@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 
 const AddProfessors = (props) => {
     
-    const [professor, setProfessor] = useState([0]);
+    const [professors, setProfessor] = useState([]);
 
     function handleSubmit(event) {
-        event.preventDefuault();
+        event.preventDefault();
         let newteacher = {
-            professor: professor,
+            professor: professors,
         };
         console.log(newteacher);
         props.parentEntriesProperty(newteacher)
@@ -16,11 +16,10 @@ const AddProfessors = (props) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Professor</label>
-            <input type = 'text' value={professor} onChange={(event) => setProfessor(event.target.value)}/>
+            <label>Add Professor</label>
+            <input type = 'text' value={professors} onChange={(event) => setProfessor(event.target.value)}/>
             <button type='submit'>Add</button>
         </form>
     )
 }
-
 export default AddProfessors;

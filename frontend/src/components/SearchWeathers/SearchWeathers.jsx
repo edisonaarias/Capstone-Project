@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 const SearchWeathers = (props) => {
 
 
-    function SearchWeathers(){
+    function Weathers(){
 
-        console.log(props.climateSearches);
+        console.log(props.weathers);
 
-        let filteredWeathers = props.climateSearches.filter(climateSearches => climateSearches.details);
+        let filteredWeathers = props.weathers.filter(climateSearches => climateSearches.details);
 
         let searchWeathers = filteredWeathers.map(weather => {
-            return weather.propsSearchWeathers
+            
         });
     }
     const [weather, setWeather] = useState("");
@@ -21,9 +21,8 @@ const SearchWeathers = (props) => {
             weather: weather,
         };
         console.log(searchforWeathers);
-        props.searchforWeathers(searchforWeathers)
+        props.SearchWeathers(searchforWeathers)
     }
-   
     return ( 
         <div className='form=group'>
             <form onSubmit={handleSubmit}>
@@ -33,7 +32,7 @@ const SearchWeathers = (props) => {
             </form>
             <tbody>
 
-                {props.climateSearches.map((climateSearches, index) => {
+                {props.weathers.map((SearchWeathers, index) => {
                     return (
 
                         <tr key={index}>
@@ -43,7 +42,6 @@ const SearchWeathers = (props) => {
                 })}
             </tbody>
 
-            
         </div>
 
 

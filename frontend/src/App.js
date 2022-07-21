@@ -13,7 +13,10 @@ import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import AddProfessors from "./components/AddProfessors/AddProfessors";
 import SearchWeathers from "./components/SearchWeathers/SearchWeathers";
-import DisplayColleges from "./components/DisplayColleges/DisplayColleges";
+import CollegeTable from "./components/CollegeTable/CollegeTable";
+import SearchPrograms from "./components/SearchPrograms/SearchPrograms"
+import AddProfessorForm from "./components/AddProfessorForm/AddProfessorForm";
+
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -21,8 +24,11 @@ import axios from "axios";
 
 function App() {
 
-  const [colleges, setColleges] = useState([]);
-  const [weathers, SearchWeathers]= useState([]);
+  const [colleges, setColleges] = useState([{University:"UNLV",enviorment:"restaurants",Professor:"Badlwin",benefits:"discount programs", culture:"big party school", programs:"Hospitality administration", cost:"25217", weather_type:"dry heat", mayor_type:"Psychology"}]); 
+  const [weathers, setWeathers]= useState([]);
+  const [programs, setPrograms]= useState([]);
+  const [rates, setRates] = useState([]);
+
 
 useEffect(() => {
   // getSearchWeathers();
@@ -51,9 +57,11 @@ useEffect(() => {
               <HomePage> 
                 
               </HomePage> 
-              <AddProfessors parentEntriesProperty={NewProfessors} />
-              {/* <SearchWeathers climateSearches={getSearchWeathers}/> */}
-              <DisplayColleges parentColleges={colleges}/>
+              <CollegeTable colleges={colleges}/>
+              <AddProfessors/>
+              <SearchWeathers weathers={weathers}/>
+              <SearchPrograms programs ={programs}/>
+              {/* <AddProfessorForm rates={rates}/> */}
             </PrivateRoute>
             
           }

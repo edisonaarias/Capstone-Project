@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 const SearchPrograms = (props) => {
 
 
-    function SearchPrograms(){
+    function DontDoThat(){
 
-        console.log(props.schemeSearches);
+        console.log(props.programs);
 
-        let filterPrograms = props.schemeSearches.filter(schemeSearches => schemeSearches.details); 
+        let filterPrograms = props.programs.filter(schemeSearches => schemeSearches.details); 
     
         let SearchPrograms = filterPrograms.map(program => {
 
@@ -21,10 +21,10 @@ const SearchPrograms = (props) => {
             program: program,
         };
         console.log(searchforPrograms);
-        props.searchforPrograms(searchforPrograms)
+        props.SearchPrograms(searchforPrograms)
     }
     return ( 
-        <div className='form=group'>
+        <div onSubmit='form=group'>
             <form onSubmit={handleSubmit}>
                 <label>Search for Program</label>
                 <input type="text" value={program} className="for-control" onChange={(event) => setprogram(event.target.value)}/>
@@ -32,7 +32,7 @@ const SearchPrograms = (props) => {
             </form>
             <tbody>
 
-                {props.schemeSearches.map((schemeSearches, index) =>{
+                {props.programs.map((SearchPrograms, index) =>{
                   return (
 
                     <tr key={index}>
