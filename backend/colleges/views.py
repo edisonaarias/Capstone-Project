@@ -1,4 +1,4 @@
-import re
+from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -13,16 +13,10 @@ from .serializers import CollegeSerializer
 @permission_classes([AllowAny])
 def get_all_colleges(request):
     print('weeeeeeeee')
-    if request.method == 'GET':
-        colleges = College.objects.all()
-        serializier = CollegeSerializer(colleges, many=True)
-        return Response(serializier.data)
-    
-    elif request.method == 'POST':
-        serializier = CollegeSerializer(data=request.data)
-        serializier.is_valid(raise_exception=True)
-        serializier.save()
-        return Response(serializier.errors, status=status.HTTP_400_BAD_REQUEST)
+    colleges = College.objects.all()
+    serializier = CollegeSerializer(colleges, many=True)
+    return Response(serializier.data)
+
 
 
 @api_view(['GET', 'POST'])

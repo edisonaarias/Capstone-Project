@@ -24,7 +24,7 @@ import axios from "axios";
 
 function App() {
 
-  const [colleges, setColleges] = useState([{University:"UNLV",enviorment:"restaurants",Professor:"Badlwin",benefits:"discount programs", culture:"big party school", programs:"Hospitality administration", cost:"25217", weather_type:"dry heat", mayor_type:"Psychology"}]); 
+  const [colleges, setColleges] = useState([{University:"UNLV",enviorment:"restaurants",Professor:"Baldwin",benefits:"discount programs", culture:"big party school", programs:"Hospitality administration", cost:"25217", weather_type:"dry heat", mayor_type:"Psychology"}]); 
   const [weathers, setWeathers]= useState([]);
   const [programs, setPrograms]= useState([]);
   const [rates, setRates] = useState([]);
@@ -35,7 +35,7 @@ useEffect(() => {
 }, []);
 
 
-  const [teachers, setTeachers] = useState([{Professor: "Dr.Clark"}])
+  const [teachers, setTeachers] = useState([{Professor: "Baldwin"}])
 
   function NewProfessors(teacher){
 
@@ -58,7 +58,7 @@ useEffect(() => {
                 
               </HomePage> 
               <CollegeTable colleges={colleges}/>
-              <AddProfessors/>
+              <AddProfessors />
               <SearchWeathers weathers={weathers}/>
               <SearchPrograms programs ={programs}/>
               {/* <AddProfessorForm rates={rates}/> */}
