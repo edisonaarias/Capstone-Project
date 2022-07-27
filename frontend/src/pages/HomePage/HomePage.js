@@ -10,6 +10,7 @@ import {Link} from "react-router-dom";
 import AddProfessors from "../../components/AddProfessors/AddProfessors";
 import BenefitsSearch from "../../components/BenefitsSearch/BenefitsSearch";
 import CulturesSearch from "../../components/CulturesSearch/CulturesSearch";
+import WeatherSearch from "../../components/WeatherSearch/WeatherSearch";
 
 
 let initialValues = {
@@ -74,6 +75,7 @@ const HomePage = () => {
             {professors.name} {professors.class_type} {professors.message}
             <BenefitsSearch colleges={colleges}/>
             <CulturesSearch colleges={colleges}/>
+            <WeatherSearch colleges={colleges}/>
          
           </p>
         ))}
