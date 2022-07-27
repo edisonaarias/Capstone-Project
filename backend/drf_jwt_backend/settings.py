@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'colleges.apps.CollegesConfig',
     'reviews.apps.ReviewsConfig',
     'rates.apps.RatesConfig',
+    'professors.apps.ProfessorsConfig',
 ]
 
 MIDDLEWARE = [

@@ -10,9 +10,4 @@ class CollegeSerializer(serializers.ModelSerializer):
         fields = ['id', 'University','user','enviroment','professor','benefits','culture','programs','cost', 'weather_type','major_type']
         depth = 1
 
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # enviroment = models.CharField(max_length=30)
-    # professor = models.CharField(max_length=100)
-    # benefits = models.CharField(max_length=100)
-    # culture = models.CharField(max_length=100)
-    # cost = models.IntegerField()
+  

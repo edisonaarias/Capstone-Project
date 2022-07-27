@@ -1,9 +1,9 @@
 from django.urls import path, include
-from reviews import views
+from . import views
 
 
 
-urlspatterns = [
+urlpatterns = [
     path('', views.get_all_reviews),
-    path('all', views.user_reviews),
+    path('<int:pk>/', views.user_reviews),
 ]

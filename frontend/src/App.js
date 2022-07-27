@@ -2,6 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -21,6 +22,8 @@ import AddProfessorForm from "./components/AddProfessorForm/AddProfessorForm";
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 import axios from "axios";
+import AddProfessorPage from "./pages/AddProfessor/AddProfessor";
+import BenefitsSearch from "./components/BenefitsSearch/BenefitsSearch";
 
 function App() {
 
@@ -68,6 +71,15 @@ useEffect(() => {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route 
+          path="/addprofessor"
+          element={
+          <PrivateRoute>
+            <AddProfessorPage />
+            <BenefitsSearch benefits={colleges}/>
+            </PrivateRoute>
+          }
+        />
       </Routes>
       <Footer />
       
