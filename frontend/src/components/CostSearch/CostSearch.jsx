@@ -7,7 +7,10 @@ const CostSearch = (props) => {
     const triggerSearch = () => {
 
         let results = props.colleges.filter((college) => {
-            if (college.costs.includes(searchTerm)) {
+       { const arr = [25217,25217,25217,39000,34499,36949,23126];
+
+    const filter = arr.filter((number) => number < 100000);
+    console.log(filter); 
 
                 return true;
             }
@@ -19,7 +22,7 @@ const CostSearch = (props) => {
             <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
             <button onClick={triggerSearch}>Cost Search</button>
 
-            {filterCosts.map(el => <div>{el.costs}</div>)}
+            {filterCosts.map(el => <div>{el.University}</div>)}
         </div>
 
      );

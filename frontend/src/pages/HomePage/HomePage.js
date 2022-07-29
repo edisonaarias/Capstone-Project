@@ -11,6 +11,7 @@ import AddProfessors from "../../components/AddProfessors/AddProfessors";
 import BenefitsSearch from "../../components/BenefitsSearch/BenefitsSearch";
 import CulturesSearch from "../../components/CulturesSearch/CulturesSearch";
 import WeatherSearch from "../../components/WeatherSearch/WeatherSearch";
+import CostSearch from "../../components/CostSearch/CostSearch";
 
 
 let initialValues = {
@@ -76,6 +77,7 @@ const HomePage = () => {
             <BenefitsSearch colleges={colleges}/>
             <CulturesSearch colleges={colleges}/>
             <WeatherSearch colleges={colleges}/>
+            <CostSearch colleges={colleges}/>
          
           </p>
         ))}

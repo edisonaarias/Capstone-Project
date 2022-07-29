@@ -8,7 +8,7 @@ const CulturesSearch = (props) => {
     const triggerSearch = () => {
 
         let results = props.colleges.filter((college) => {
-            if (college.cultures.includes(searchTerm)) {
+            if (college.culture.includes(searchTerm)) {
 
                 return true;
             }
@@ -20,7 +20,7 @@ const CulturesSearch = (props) => {
             <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
             <button onClick={triggerSearch}>Search Culture</button>
 
-            {filteredCultures.map(el => <div>{el.cultures}</div>)}
+            {filteredCultures.map(el => <div>{el.University}</div>)}
         </div>
     );
 }
