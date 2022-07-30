@@ -1,28 +1,22 @@
 import React, { useState } from 'react';
 
 const CostSearch = (props) => {
-    const [searchTerm, setSearchTerm] = useState('')
-    const [filterCosts, setFilteredCosts] = useState([])
+    const [searchNumber, setSearchNumber] = useState('')
+    const [filterCost, setFilterCost] = useState([])
 
-    const triggerSearch = () => {
+    const colleges = [25217, 40000, 39000, 34499, 36949, 23126];
 
-        let results = props.colleges.filter((college) => {
-       { const arr = [25217,25217,25217,39000,34499,36949,23126];
+        const triggerSearch = () => {
+            let results = colleges.filter(el => el.value < 100000)
 
-    const filter = arr.filter((number) => number < 100000);
-    console.log(filter); 
-
-                return true;
-            }
-        })
-        setFilteredCosts(results)
+        setFilterCost(results)
+   
     }
     return ( 
         <div>
-            <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+            <input value={searchNumber} onChange={(e) => setSearchNumber(e.target.value)}></input>
             <button onClick={triggerSearch}>Cost Search</button>
-
-            {filterCosts.map(el => <div>{el.University}</div>)}
+            {filterCost.map(el => <div>{el.University}</div>)}
         </div>
 
      );
