@@ -24,6 +24,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import axios from "axios";
 import AddProfessorPage from "./pages/AddProfessor/AddProfessor";
 import BenefitsSearch from "./components/BenefitsSearch/BenefitsSearch";
+import CostSearch from "./components/CostSearch/CostSearch";
 
 function App() {
 
@@ -61,10 +62,8 @@ useEffect(() => {
                 
               </HomePage> 
               <CollegeTable colleges={colleges}/>
-              <AddProfessors />
-              <SearchWeathers weathers={weathers}/>
-              <SearchPrograms programs ={programs}/>
-              {/* <AddProfessorForm rates={rates}/> */}
+             
+              <AddProfessorForm rates={rates}/>
             </PrivateRoute>
             
           }
@@ -77,6 +76,8 @@ useEffect(() => {
           <PrivateRoute>
             <AddProfessorPage />
             <BenefitsSearch benefits={colleges}/>
+            <CostSearch cost={colleges}/>
+            <SearchPrograms programs={colleges}/>
             </PrivateRoute>
           }
         />

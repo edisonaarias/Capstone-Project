@@ -18,7 +18,7 @@ const BenefitsSearch = (props) => {
     return (
         <div>
             <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
-            <button onClick={triggerSearch}>Click Me</button> 
+            <button onClick={triggerSearch}>Search Benefits</button> 
 
             {filteredColleges.map(el => <div>{el.University}</div>)}
         </div>
