@@ -13,6 +13,7 @@ import CulturesSearch from "../../components/CulturesSearch/CulturesSearch";
 import WeatherSearch from "../../components/WeatherSearch/WeatherSearch";
 import CostSearch from "../../components/CostSearch/CostSearch";
 import SearchPrograms from "../../components/SearchPrograms/SearchPrograms";
+import AddRates from "../../components/AddRates/AddRates";
 
 
 let initialValues = {
@@ -28,6 +29,7 @@ const HomePage = () => {
   const [user, token] = useAuth();
   const [colleges, setColleges] = useState([]);
   const [professors, setProfessors] = useState([]);
+  const [rates, setRates] = useState([]);
   console.log(user);
   console.log(token);
 
@@ -63,6 +65,22 @@ const HomePage = () => {
     fetchProfessors();
   }, [token]);
 
+  useEffect(() => {
+    const fetchRates = async () => {
+      try {
+        let response = await axios.get("http://127.0.0.1:8000/api/rates/", {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        setRates(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    };
+    fetchRates();
+  }, [token]);
+
 
   const [weathers, setweathers] = useState([{University: "UNLV", Enviroment: "restaurnats", benefits: "discount programs", culture:"big party school", programs:"Hospitality", cost:"25217", weather_type:"Day Heat", mayor_type:"Psychology"}])
 
@@ -70,10 +88,21 @@ const HomePage = () => {
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
       <Link to="/addprofessor">Add Professor</Link>
+      <Link to="/addrates">Add Rating</Link>
 
+      {rates &&
+      rates.map((rate) => (
+        <p key={rates.id}>
+          {rates.ratings}
+        </p>
+
+      ))}
+        
+    
       {professors &&
         professors.map((professors) => (
           <p key={professors.id}>
+
             {professors.name} {professors.class_type} {professors.message}
             <BenefitsSearch colleges={colleges}/>
             <CulturesSearch colleges={colleges}/>

@@ -9,7 +9,7 @@ from .serializers import RateSerializer
 # Create your views here.
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 @permission_classes([AllowAny])
 def get_all_rates(request):
     print('Hello')
@@ -27,7 +27,7 @@ def user_rates(request):
         if request.method == 'POST':
             serializer = RateSerializer(data=request.data)
             if serializer.is_valid():
-                serializer.save(user=request.user)
+                serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         elif request.method == 'GET':

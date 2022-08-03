@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 
 const CostSearch = (props) => {
     
@@ -7,7 +7,7 @@ const CostSearch = (props) => {
 
     function getCollegeCost(){
 
-        let costNumbers = props.colleges.filter(el => el.cost < 100000)
+        let costNumbers = props.colleges.filter(el => el.cost < searchNumber)
 
         console.log(costNumbers)
 

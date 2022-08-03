@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-
+import AddRatesPage from "./pages/AddRatesPage/AddRatesPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -17,6 +17,7 @@ import SearchWeathers from "./components/SearchWeathers/SearchWeathers";
 import CollegeTable from "./components/CollegeTable/CollegeTable";
 import SearchPrograms from "./components/SearchPrograms/SearchPrograms"
 import AddProfessorForm from "./components/AddProfessorForm/AddProfessorForm";
+import AddRates from "./components/AddRates/AddRates";
 
 
 // Util Imports
@@ -25,6 +26,7 @@ import axios from "axios";
 import AddProfessorPage from "./pages/AddProfessor/AddProfessor";
 import BenefitsSearch from "./components/BenefitsSearch/BenefitsSearch";
 import CostSearch from "./components/CostSearch/CostSearch";
+
 
 function App() {
 
@@ -58,12 +60,10 @@ useEffect(() => {
           path="/"
           element={
             <PrivateRoute>
-              <HomePage> 
-                
+              <HomePage>       
               </HomePage> 
               <CollegeTable colleges={colleges}/>
-             
-              <AddProfessorForm rates={rates}/>
+            
             </PrivateRoute>
             
           }
@@ -73,6 +73,8 @@ useEffect(() => {
         <Route 
           path="/addprofessor"
           element={
+
+
           <PrivateRoute>
             <AddProfessorPage />
             <BenefitsSearch benefits={colleges}/>
@@ -81,6 +83,12 @@ useEffect(() => {
             </PrivateRoute>
           }
         />
+           <Route 
+           path="/addrates"element={
+             <PrivateRoute>
+              <AddRatesPage />
+              </PrivateRoute>
+            }/>
       </Routes>
       <Footer />
       
