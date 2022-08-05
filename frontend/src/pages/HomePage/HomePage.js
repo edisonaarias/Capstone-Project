@@ -89,11 +89,12 @@ const HomePage = () => {
       <h1>Home Page for {user.username}!</h1>
       <Link to="/addprofessor">Add Professor</Link>
       <Link to="/addrates">Add Rating</Link>
-
+      <h2>Ratings</h2>
       {rates &&
       rates.map((rate) => (
-        <p key={rates.id}>
-          {rates.ratings}
+        <p key={rate.id}>
+          {rate.Rates}
+          {}
         </p>
 
       ))}

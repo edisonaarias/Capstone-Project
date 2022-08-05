@@ -1,13 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
 
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from '../../hooks/useCustomForm';
-
+import axios from 'axios';
 
 let initialValues = {
-    rate: "",
+    Rates: "",
+    id: "",
+    professor:"",
 };
 
 const AddRatesPage = () => {
@@ -40,16 +42,34 @@ const AddRatesPage = () => {
     return (
         <div>
              <form className="form" onSubmit={handleSubmit}>
+                <label>
+                    professor:{" "}
+                    <input
+                     type ="text"
+                    name = "professor"
+                    value={formData.Professor}
+                    onChange={handleInputChange}
+                    />
+                </label>
+                <label>
+                    id:{""}
+                    <input
+                    type ="text"
+                    name= "id"
+                    value={formData.id}
+                    onChange={handleInputChange}
+                    />
+                </label>
               <label>
-                Rate:{" "}
+                Rates:{" "}
                 <input
                 type ="text"
-                name="rate"
-                value={formData.rate}
+                name="Rates"
+                value={formData.Rates}
                 onChange={handleInputChange}
                 />
               </label>
-              <button>Add Rate</button>
+              <button>Add Rates</button>
             </form>
         </div>
         );
